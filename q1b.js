@@ -141,5 +141,8 @@ MongoClient.connect(url,(err,db)=>{
            }
 
         })
+        app.listen(5000,(req,res)=>{
+            console.log("server is running on port 5000 http://localhost:5000");
+        })
     }
 })

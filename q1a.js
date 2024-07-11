@@ -2,10 +2,13 @@
 //place an occurrence of "o" in between. For example, translate("this is fun") should return the
 // string "tothohisos isos fofunon"..
 
-let string = "this is fun";
+let btn = document.getElementById("btn");
+btn.addEventListener("click",()=>{
+    let string = document.getElementById("str").value;
+// let string = "this is fun";
 
 let newStr = "";
-let vowel = ['a','e','i','o','u'];
+let vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
 
 for(let i =0; i < string.length;i++ ){
     if(string[i] === " "){
@@ -22,4 +25,8 @@ for(let i =0; i < string.length;i++ ){
     }
 }
 
-console.log(newStr);
+let op = document.getElementById("output");
+op.innerHTML = newStr;
+})
+
+// console.log(newStr);

@@ -1,16 +1,18 @@
-let monthNumber = window.prompt("Enter the month Number");
-
-if(monthNumber < 1 || monthNumber > 12 || isNaN(monthNumber)){
-    alert("Bad Number");
-}
-else{
-    monthNumber = Math.floor(monthNumber);
-const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
-const month = monthNames[monthNumber - 1];
-alert(month);
-
-const container = document.getElementById('monthName');
-container.innerHTML = month;
+function createMonthConverter() {
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return function(monthNumber) {
+        if (monthNumber < 1 || monthNumber > 12 || isNaN(monthNumber)) {
+            return "Bad Number";
+        }
+        monthNumber = Math.floor(monthNumber);
+        return monthNames[monthNumber - 1];
+    };
 }
 
+document.getElementById("convertButton").addEventListener("click", () => {
+    let monthNumber = parseFloat(document.getElementById("monthInput").value);
+    let convertMonth = createMonthConverter();
+    let monthName = convertMonth(monthNumber);
+
+    document.getElementById("monthName").innerText = monthName;
+});
