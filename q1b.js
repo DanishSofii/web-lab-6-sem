@@ -100,6 +100,11 @@ MongoClient.connect(url,(err,db)=>{
 
 
         app.get("/q1b",(req,res)=>{
+            let name = req.query.name;
+            let usn = req.query.usn;
+            let sem = req.query.sem;
+            let examfee = req.query.examfee;
+            let cie = req.query.cie;
             db.collection('student').insertOne({'name':name,'usn' : usn, 'sem':sem,'examfee':examfee,'cie':cie});
             if(err){
                 console.log(err);
