@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="root"></div>
+    <script src="./react/babel.min.js"></script>
+    <script src="./react/axios.min.js"></script>
+    <script src="./react/prop-types.js"></script>
+    <script src="./react/react.development.js"></script>
+    <script src="./react/react-dom.development.js"></script>
+    <script type="text/babel">
+        const Person = ()=>{
+            const [name,setName] = React.useState("");
+        
+            const handleChange = (event)=>{
+                setName(event.target.value);
+            }
+            return(
+                <div>
+                    <h1>{name}</h1>
+                    <form action="">
+                        <input type="text" value={name} placeholder="Enter name" onChange = {handleChange}/>    
+                    </form>    
+                </div>
+            );
+        };
+        ReactDOM.render(<Person/>,document.getElementById('root'));
+    </script>
+</body>
+</html>
