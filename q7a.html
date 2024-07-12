@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Registration Form</h2>
+    <form>
+        <!-- Name Field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" pattern="[A-Za-z\s]+" required>
+
+        <!-- Email Field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Please enter valid email address" required>
+
+        <!-- Phone Field -->
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" pattern="\d{3}-\d{3}-\d{4}" placeholder="080-555-5555" required>
+
+        <!-- Semester Field -->
+        <label for="semester">Semester:</label>
+        <input type="number" id="semester" name="semester" min="1" max="8" required>
+
+        <!-- Branch Field -->
+        <label for="branch">Branch:</label>
+        <input list="branches" id="branch" name="branch" required>
+        <datalist id="branches">
+            <option value="Computer Science">
+            <option value="Electrical Engineering">
+            <option value="Mechanical Engineering">
+            <option value="Civil Engineering">
+            <option value="Chemical Engineering">
+        </datalist>
+
+        <!-- Website Field -->
+        <label for="website">Website:</label>
+        <input type="url" id="website" name="website" pattern="https?://.+" placeholder="http://" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
