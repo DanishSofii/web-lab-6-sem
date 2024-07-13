@@ -2,6 +2,7 @@
 
 // const express = require('express');
 // const {MongoClient} = require('mongodb');
+// const path = require('path');
 // const app = express();
 
 
@@ -26,7 +27,7 @@
 
 
 // app.get("/",(req,res)=>{
-//     res.sendFile("/index.html");
+//     res.sendFile(path.join(__dirname,"public","/q1b.html"));
 // })
 
 // app.get("/q1b",(req,res)=>{
@@ -47,6 +48,7 @@
 //     try{
 //         const db = client.db();
 //         const result = await db.collection('student').find().toArray();
+        
 
 //         res.send(`
 //             <html>
@@ -95,7 +97,7 @@ MongoClient.connect(url,(err,db)=>{
         app.use(express.static("public"));
 
         app.get("/",(req,res)=>{
-            res.sendFile("/index.html");
+            res.sendFile(path.join(__dirname,"public","/q1b.html"));
         })
 
 
@@ -116,7 +118,7 @@ MongoClient.connect(url,(err,db)=>{
 
         app.get("/display",async (req,res)=>{
            try{
-            const result = await db.collection('student').find().toArray();
+            const result = await db.collection('student').find({cie :{$lt : 20}}).toArray();
             res.send(`
                 <html>
                 <body>
@@ -130,11 +132,11 @@ MongoClient.connect(url,(err,db)=>{
                         <td>${item.sem}</td>
                         <td>${item.examfee}</td>
                         <td>${item.cie}</td>
-                    `)}
-                    </table>
-                    </body>
-                    </html>
-                `)
+                `)}
+                </table>
+                </body>
+                </html>
+            `)
            }
            catch(err){
             console.log(err);
